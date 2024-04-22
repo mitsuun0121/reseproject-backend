@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 
 class StripeController extends Controller
 {
-    public function createCheckoutSession(Request $request)
+    public function createCheckoutSession()
     {
         // Stripe APIキーを設定
         Stripe::setApiKey(config('services.stripe.secret'));
@@ -31,8 +30,6 @@ class StripeController extends Controller
                 'success_url' => 'http://localhost:3000/users/payment', // 支払い成功時のリダイレクトURL
                 'cancel_url' => 'http://localhost:3000/users/done', // 支払いキャンセル時のリダイレクトURL
             ]);
-
-            \Log::info($session);
 
             return response()->json(['sessionId' => $session->id]);
         } catch (\Exception $e) {

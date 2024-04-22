@@ -16,8 +16,7 @@ class Score extends Model
         'title',
         'review',
         'comment',
-        'gender',
-        'age',
+        'image',
     ];
 
     public function user()

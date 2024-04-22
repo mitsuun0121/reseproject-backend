@@ -46,7 +46,7 @@ Route::apiResource('reservation', ReservationController::class);
 // お気に入りに関するルート
 Route::apiResource('favorite', FavoriteController::class);
 
-// レビューに関するルート
+// 口コミに関するルート
 Route::apiResource('review', ScoreController::class);
 
 // お知らせメールを送信

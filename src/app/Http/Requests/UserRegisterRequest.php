@@ -33,19 +33,19 @@ class UserRegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => '名前を入力して下さい',
-            'name.string' => '名前は文字列で入力して下さい',
-            'name.max' => '名前は191文字以下で入力して下さい',
-            'email.required' => 'メールアドレスを入力して下さい',
-            'email.email' => 'メールアドレスの形式で入力して下さい',
-            'email.unique' => '重複したメールアドレスです',
-            'email.string' => 'メールアドレスは文字列で入力して下さい',
-            'email.max' => 'メールアドレスは191文字以下で入力して下さい',
-            'password.required' => 'パスワードを入力して下さい',
-            'password.min' => 'パスワードは8文字以上で入力して下さい',
-            'password.max' => 'パスワードは191文字以下で入力して下さい',
-            'password.min' => 'パスワードは8文字以上で入力して下さい',
-            'password.regex' => 'パスワードは半角英数字の組み合わせで入力して下さい',
+            'name.required' => '名前を入力して下さい。',
+            'name.string' => '名前は文字列で入力して下さい。',
+            'name.max' => '名前は191文字以下で入力して下さい。',
+            'email.required' => 'メールアドレスを入力して下さい。',
+            'email.email' => 'メールアドレスの形式で入力して下さい。',
+            'email.unique' => '重複したメールアドレスです。',
+            'email.string' => 'メールアドレスは文字列で入力して下さい。',
+            'email.max' => 'メールアドレスは191文字以下で入力して下さい。',
+            'password.required' => 'パスワードを入力して下さい。',
+            'password.min' => 'パスワードは8文字以上で入力して下さい。',
+            'password.max' => 'パスワードは191文字以下で入力して下さい。',
+            'password.min' => 'パスワードは8文字以上で入力して下さい。',
+            'password.regex' => 'パスワードは半角英数字の組み合わせで入力して下さい。',
         ];
     }
 }

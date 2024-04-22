@@ -20,8 +20,7 @@ class CreateScoresTable extends Migration
             $table->string('title');
             $table->integer('review');
             $table->text('comment');
-            $table->integer('gender')->default(1);
-            $table->integer('age');
+            $table->string('image')->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

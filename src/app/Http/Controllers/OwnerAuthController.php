@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Owner;
 use App\Http\Requests\OwnerRegisterRequest;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -16,12 +14,14 @@ class OwnerAuthController extends Controller
     public function register(OwnerRegisterRequest $request)
     {
         // 店舗代表者を作成
-        $owner = Owner::create([
-            'shop_id' => $request->shop_id,
+        $shopId = intval($request->shop_id);
+        $owner = new Owner([
+            'shop_id' => $shopId,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $owner->save();
 
         return response()->json(['message' => 'Successfully']);
     }

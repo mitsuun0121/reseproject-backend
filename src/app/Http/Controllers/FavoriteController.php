@@ -57,7 +57,7 @@ class FavoriteController extends Controller
 
             return response()->json($favorite, 201);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             return response()->json(['message' => 'エラーが発生しました: ' . $e->getMessage()], 500);
         }

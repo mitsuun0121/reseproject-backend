@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shop;
+use App\Http\Requests\ShopRequest;
 
 class ShopController extends Controller
 {
@@ -43,6 +44,23 @@ class ShopController extends Controller
         $shopData = Shop::findOrFail($id);
         
         return response()->json($shopData, 200);
+    }
+
+    // 新しい店舗を作成
+    public function store(ShopRequest $request)
+    {
+        try {
+            // リクエストデータを取得
+            $data = $request->only(['name', 'area_id', 'genre_id', 'description', 'photo_url']);
+
+            $shop = Shop::create($data);
+
+            return response()->json($shop, 201);
+
+        } catch (\Exception $e) {
+
+            return response()->json(['message' => '保存に失敗しました: ' . $e->getMessage()], 500);
+        }
     }
 
     // 店舗データを変更する
